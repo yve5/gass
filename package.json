@@ -1,0 +1,13 @@
+{
+  "name": "gass",
+  "version": "0.1.0",
+  "description": "mf gulp sass boilerplate",
+  "private": true,
+  "author": "Yve5",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-sass": "^2.2.0"
+  }
+}
