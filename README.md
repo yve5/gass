@@ -7,9 +7,8 @@ a) Install NodeJS
 
 b) Type the following lines inside a command-line terminal :
 <pre>
-npm install -g gulp karma
+npm install -g gulp
 npm install
-bower install
 </pre>
 
 > If error appears, repeat again the command lines.
