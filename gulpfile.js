@@ -1,48 +1,39 @@
 'use strict';
 
-// requirements
-var gulp    = require('gulp');
-var $       = require('gulp-load-plugins')();
+
+var gulp        = require('gulp');
+var sass        = require('gulp-sass');
+var sassFolder  = 'sass/**/*.scss';
+var cssFolder   = 'css';
+var buildfolder = 'dist';
 
 
-// configurable paths
-var config = {
-  sass: 'sass/**/*.scss',
-  css: 'css',
-  dist: 'dist'
-};
 
-
-// css generation
-// styles : expanded, nested, compressed
-var compile = function(input, output, style) {
-  return gulp.src(input)
-      .pipe($.sass.sync({
+var compile = function (folder, style) {
+  return gulp.src(sassFolder)
+    .pipe(sass({
         outputStyle: style,
         includePaths: ['.'],
         precision: 10
-      }).on('error', $.sass.logError))
-      .pipe(gulp.dest(output));
+      })
+      .on('error', sass.logError))
+    .pipe(gulp.dest(folder));
 }
 
 
-// development generation
-gulp.task('dev', function () {
-  compile(config.sass, config.css, 'expanded');
+gulp.task('compile', function () {
+  return compile(cssFolder, 'expanded');
 });
 
 
-// sass file watch
-gulp.task('watch', ['dev'], function () {
-  gulp.watch(config.sass, ['dev']);
-});
-
-
-// build
 gulp.task('build', function () {
-  compile(config.sass, config.dist, 'compressed');
+  return compile(buildfolder, 'compressed');
 });
 
 
-// default task
+gulp.task('watch', ['compile'], function () {
+  gulp.watch(sassFolder, ['compile']);
+});
+
+
 gulp.task('default', ['watch']);
