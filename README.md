@@ -34,9 +34,8 @@ Type of these below command line inside a terminal:
 
 | Command                    | Meaning                                                  |
 | -------------------------- | -------------------------------------------------------- |
-| **gulp** 					 | Development server launching                             |
-| **gulp build**             | Project building in *dist* folder                        |
-| **gulp dist**              | Project building and server launching from *dist* folder |
+| **gulp** 					 | development css generation from scss                     |
+| **gulp build**             | distribution css generation from scss                    |
 
 ## License
 
