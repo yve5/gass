@@ -11,11 +11,7 @@ var buildfolder = 'dist';
 
 var compile = function (folder, style) {
   return gulp.src(sassFolder)
-    .pipe(sass({
-        outputStyle: style,
-        includePaths: ['.'],
-        precision: 10
-      })
+    .pipe(sass({outputStyle: style})
       .on('error', sass.logError))
     .pipe(gulp.dest(folder));
 }
