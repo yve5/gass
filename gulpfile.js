@@ -8,7 +8,6 @@ var cssFolder   = 'css';
 var buildfolder = 'dist';
 
 
-
 var compile = function (folder, style) {
   return gulp.src(sassFolder)
     .pipe(sass({outputStyle: style})
@@ -17,19 +16,36 @@ var compile = function (folder, style) {
 }
 
 
-gulp.task('compile', function () {
+// expanded
+gulp.task('expanded', function () {
   return compile(cssFolder, 'expanded');
 });
 
-
-gulp.task('build', function () {
-  return compile(buildfolder, 'compressed');
+gulp.task('wxc', ['expanded'], function () {
+  gulp.watch(sassFolder, ['expanded']);
 });
 
 
-gulp.task('watch', ['compile'], function () {
-  gulp.watch(sassFolder, ['compile']);
+// nested
+gulp.task('nested', function () {
+  return compile(cssFolder, 'nested');
+});
+
+gulp.task('aze', ['nested'], function () {
+  gulp.watch(sassFolder, ['nested']);
 });
 
 
-gulp.task('default', ['watch']);
+// compressed
+gulp.task('compressed', function () {
+  // return compile(buildfolder, 'compressed');
+  return compile(cssFolder, 'compressed');
+});
+
+gulp.task('qsd', ['compressed'], function () {
+  gulp.watch(sassFolder, ['compressed']);
+});
+
+
+// default
+gulp.task('default', ['wxc']);

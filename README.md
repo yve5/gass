@@ -33,8 +33,13 @@ Type of these below command line inside a terminal:
 
 | Command                    | Meaning                                                  |
 | -------------------------- | -------------------------------------------------------- |
-| **gulp** 					 | development css generation from scss                     |
-| **gulp build**             | distribution css generation from scss                    |
+| **gulp** or **gulp wxc**   | watch & build SASS files to CSS expanded files           |
+| **gulp expanded**          | build SASS files to CSS expanded files                   |
+| **gulp aze**               | watch & build SASS files to CSS nested files             |
+| **gulp nested**            | build SASS files to CSS nested files                     |
+| **gulp qsd**               | watch & build SASS files to CSS compressed files         |
+| **gulp compressed**        | build SASS files to CSS compressed files                 |
+
 
 ## License
 
